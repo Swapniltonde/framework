@@ -7,7 +7,7 @@ public class JQueryUIMenusPage
 	String xpathLinkText = "//a[contains(text(),'JQuery')]";
 	
 	String xpathContinuePara1 = "//p[contains(text(),'are')]";
-	String xpathContinuePara2 = "//p[contains(text(),'Another')]";
+	String xpathContinuePara2 = "//p[starts-with(text(),'Another')]";
 	
 	String xpathListMenu1 = "//a[contains(text(),'Disabled')]";
 	String xpathListMenu2 = "//a[contains(text(),'Enabled')]";
