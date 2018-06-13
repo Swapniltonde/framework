@@ -11,6 +11,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Base {
 	
+	public String getAndConcatPath(String path, String formatValue) {
+			
+		String currentPath = System.getProperty("user.dir");
+		return String.format(path, currentPath, formatValue);
+		
+	}
+	
 	public void readExcel() {
 		
 		File file = new File("E:\\WS_Inportia\\nnnnn\\src\\test\\java\\testdata\\exe.xlsx");

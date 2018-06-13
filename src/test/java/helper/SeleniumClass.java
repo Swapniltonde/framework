@@ -14,17 +14,24 @@ public class SeleniumClass extends Base{
 	
 	public void launchApplication(String browserName, String url) 
 	{
-		if(browserName.equalsIgnoreCase("Chrome Browser")) 
+		String driverPath = "%s\\src\\test\\java\\utilities\\"+"%s"+".exe";
+		if(browserName.equalsIgnoreCase("chrome")) 
 		{
+			driverPath = this.getAndConcatPath(driverPath, "chromedriver");
+			System.setProperty("webdriver.chrome.driver", driverPath);
 			driver = new ChromeDriver();
 			
 		}
-		else if(browserName.equalsIgnoreCase("Firefox Browser")) 
+		else if(browserName.equalsIgnoreCase("firefox")) 
 		{
+			driverPath = this.getAndConcatPath(driverPath, "geckodriver");
+			System.setProperty("webdriver.chrome.driver", driverPath);
 			driver = new FirefoxDriver();
 		}
-		else if(browserName.equalsIgnoreCase("IE Browser")) 
-		{
+		else if(browserName.equalsIgnoreCase("ie")) 
+		{			
+			driverPath = this.getAndConcatPath(driverPath,"IEDriverServer");
+			System.setProperty("webdriver.chrome.driver", driverPath);
 			driver = new InternetExplorerDriver();
 		}
 		else 
@@ -32,79 +39,60 @@ public class SeleniumClass extends Base{
 			System.out.println("Invalid browser name");
 		}
 		
+		driver.get(url);
+		driver.manage().window().maximize();
+		
 	}
 	
 	
 	public WebElement identifyElement(String type, String address) {
 		WebElement  element= null;
-		By by ;
+		By by = null;
 		if(type.equalsIgnoreCase("id")) {
-			by = By.id(address);
-			element = driver.findElement(by);
-		
+			by = By.id(address);					
 		}
 		else if(type.equalsIgnoreCase("name")) {
-	         by = By.name(address);
-			element = driver.findElement(by);
+	        by = By.name(address);			
 		}
-		else if(type.equalsIgnoreCase("className")) {
-			by = By.className(address);
-			element = driver.findElement(by);
+		else if(type.equalsIgnoreCase("classname")) {
+			by = By.className(address);			
 		}
-		else if(type.equalsIgnoreCase("cssSelector")) {
-			by= By.cssSelector(address);
-			element = driver.findElement(by);
+		else if(type.equalsIgnoreCase("css")) {
+			by= By.cssSelector(address);			
 		}
 		else if(type.equalsIgnoreCase("xpath")) {
-			 by = By.xpath(address);
-			element = driver.findElement(by);
+			 by = By.xpath(address);			
 		}
-		else if(type.equalsIgnoreCase("link Text")) {
-			by = By.linkText(address);
-			element = driver.findElement(by);
+		else if(type.equalsIgnoreCase("linktext")) {
+			by = By.linkText(address);			
 		}
 		else if(type.equalsIgnoreCase("tagname")) {
-			 by = By.name(address);
-			element = driver.findElement(by);
+			 by = By.tagName(address);			 
 		}
-		else if(type.equalsIgnoreCase("partialLinkText")) {
-			 by = By.name(address);
-			element = driver.findElement(by);
+		else if(type.equalsIgnoreCase("partiallinktext")) {
+			 by = By.partialLinkText(address);			 
 		}
+		element = driver.findElement(by);
 		return element;
 		
 	}
 	
-	public void performAction(WebElement element, String actionType, String value) {
+	public String performAction(WebElement element, String actionType, String value) {
 		
+		String str = null;
 		if(actionType.equalsIgnoreCase("click")) {
 			element.sendKeys();
-		}
-		
-		if(actionType.equalsIgnoreCase("click")) {
-			element.sendKeys();
-		}
-		
-		if(actionType.equalsIgnoreCase("click")) {
-			
-			element.click();
-			
-		}
-		
+		}		
 		else if(actionType.equalsIgnoreCase("gettext"))
 		{
-			element.getText();
+			str = element.getText();
 		}
-		else if(actionType.equalsIgnoreCase("gettext"))
-		{
-			element.getText();
-		}
-		
-		else if(actionType.equalsIgnoreCase("sendKeys"))
+		else if(actionType.equalsIgnoreCase("settext"))
 		{
 			element.sendKeys(value);
 		}
 		
+		return str;
 	}
 
 }

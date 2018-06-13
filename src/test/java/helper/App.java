@@ -1,5 +1,7 @@
 package helper;
 
+import org.openqa.selenium.WebElement;
+
 /**
  * Hello world!
  *
@@ -8,6 +10,12 @@ public class App
 {
     public static void main( String[] args )
     {
+    	SeleniumClass sc = new SeleniumClass();
+    	sc.launchApplication("chrome", "http://fb.com");
+    	WebElement el = sc.identifyElement("id", "");
+    	sc.performAction(el, "click", null);
+    	
+    	
        // System.out.println( "Hello World!" );
     	/*ListExample le = new ListExample();
     	le.addElementsToArraylist();
