@@ -6,4 +6,5 @@ public class MultipleWindowsPage {
 	String linkTextClickHere = "Click Here";
 	String xpathHeaderNewWindow = "//h3";
 
+
 }
