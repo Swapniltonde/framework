@@ -25,8 +25,28 @@ public class SeleniumClass extends Base{
 		
 	}
 	
-	public void performAction(WebElement element, String actionType) {
+	public void performAction(WebElement element, String actionType, String value) {
 		
+		
+		if(actionType.equalsIgnoreCase("click")) {
+			
+			element.click();
+			
+		}
+		
+		else if(actionType.equalsIgnoreCase("gettext"))
+		{
+			element.getText();
+		}
+		else if(actionType.equalsIgnoreCase("gettext"))
+		{
+			element.getText();
+		}
+		
+		else if(actionType.equalsIgnoreCase("sendKeys"))
+		{
+			element.sendKeys(value);
+		}
 		
 	}
 
