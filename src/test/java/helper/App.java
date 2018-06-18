@@ -21,20 +21,18 @@ public class App
     	elem = sc.identifyElement("xpath", "//button");
     	sc.performAction(elem, "click", null);
     	
-    	elem = sc.identifyElement("id", "flash");
+    	elem = sc.identifyElement("id", "flash");	
     	
-    	
-    	
-    	/*String actualText = sc.performAction(elem, "gettext", null);
+    	String actualText = sc.performAction(elem, "gettext", null);
     	String expectedText = "Your username is invalid";
     	System.out.println(actualText);
-    	sc.compareValues(actualText.split("!")[0], expectedText);*/
+    	sc.compareValues(actualText.split("!")[0], expectedText);
     	
     	
     	
     	//sc.closeApplication(true);		
 	}
-<<<<<<< HEAD
+
 	public static void verifyFormAuthWithtextCredentials() {
 		SeleniumClass sc = new SeleniumClass();
     	WebElement elem;
@@ -48,7 +46,11 @@ public class App
     	
     	elem = sc.identifyElement("id", "password");
     	sc.performAction(elem, "settext", "SuperSecretPassword!");
-=======
+  	
+    	
+    	sc.closeApplication(true);		
+	}
+	
 	public static void verifyFormAuthWithCorrectCredentials() {
 		
 		SeleniumClass sc = new SeleniumClass();
@@ -59,33 +61,21 @@ public class App
     	sc.performAction(elem, "click", null);
     	
     	elem = sc.identifyElement("id", "username");
-    	String getusername= sc.performAction(elem,"settext","tomsmith");
+    	sc.performAction(elem,"settext","tomsmith");
     
     	elem = sc.identifyElement("id", "password");
-    	String getpassword= sc.performAction(elem,"settext","SuperSecretPassword!");
->>>>>>> fcd2a4d451d95a024a749139593db512a8eb56ed
+    	sc.performAction(elem,"settext","SuperSecretPassword!");
+
     	
     	elem = sc.identifyElement("xpath", "//button");
     	sc.performAction(elem, "click", null);
     	
-<<<<<<< HEAD
+
     	elem = sc.identifyElement("xpath", "//a[@class='button secondary radius']");
     	sc.performAction(elem, "click", null);
     	sc.closeApplication(true);
 
 	}
-	
-	
-=======
-    	
-    	
-    	
-    	
-    	
-    	
-    	//sc.closeApplication(true);		
-	}
->>>>>>> fcd2a4d451d95a024a749139593db512a8eb56ed
 	
 	public static void verifyFormAuthWithBlankCredentialswithwrongcredentials() {
 		
@@ -134,15 +124,11 @@ public class App
     {
     	
     	//verifyFormAuthWithBlankCredentials();
-<<<<<<< HEAD
+
     	verifyFormAuthWithtextCredentials();
-=======
-<<<<<<< HEAD
+
     	verifyFormAuthWithCorrectCredentials();
-=======
     	verifyFormAuthWithBlankCredentialswithwrongcredentials();
->>>>>>> c142d3dced1502dc94f68eec83eacab88918d050
->>>>>>> fcd2a4d451d95a024a749139593db512a8eb56ed
     	
        // System.out.println( "Hello World!" );
     	/*ListExample le = new ListExample();
