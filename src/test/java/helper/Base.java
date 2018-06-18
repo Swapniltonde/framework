@@ -8,8 +8,9 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.junit.Assert;
 
-import junit.framework.Assert;
+
 
 public class Base {
 	
@@ -75,6 +76,7 @@ public class Base {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	
 	public void compareValues(Object actual, Object expected) {
