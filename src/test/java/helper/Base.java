@@ -9,11 +9,14 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import junit.framework.Assert;
+
 public class Base {
 	
 	public String getAndConcatPath(String path, String formatValue) {
 			
 		String currentPath = System.getProperty("user.dir");
+		System.out.println(currentPath);
 		return String.format(path, currentPath, formatValue);
 		
 	}
@@ -74,6 +77,10 @@ public class Base {
 	}
 	
 	
+	public void compareValues(Object actual, Object expected) {
+	
+		Assert.assertEquals(expected, actual);
+	}
 	
 
 }

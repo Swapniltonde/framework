@@ -44,7 +44,6 @@ public class SeleniumClass extends Base{
 		
 	}
 	
-	
 	public WebElement identifyElement(String type, String address) {
 		WebElement  element= null;
 		By by = null;
@@ -81,7 +80,7 @@ public class SeleniumClass extends Base{
 		
 		String str = null;
 		if(actionType.equalsIgnoreCase("click")) {
-			element.sendKeys();
+			element.click();
 		}		
 		else if(actionType.equalsIgnoreCase("gettext"))
 		{
@@ -95,4 +94,14 @@ public class SeleniumClass extends Base{
 		return str;
 	}
 
+	public void closeApplication(boolean flag) {
+		
+		if(flag)
+		{
+			driver.quit();
+		}
+		else {
+			driver.close();
+		}
+	}
 }

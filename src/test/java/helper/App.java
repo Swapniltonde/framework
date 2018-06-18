@@ -8,13 +8,34 @@ import org.openqa.selenium.WebElement;
  */
 public class App 
 {
+	
+	public static void verifyFormAuthWithBlankCredentials() {
+		
+		SeleniumClass sc = new SeleniumClass();
+    	WebElement elem;
+		sc.launchApplication("chrome", "https://the-internet.herokuapp.com/");
+    	
+		elem = sc.identifyElement("linktext", "Form Authentication");
+    	sc.performAction(elem, "click", null);
+    	
+    	elem = sc.identifyElement("xpath", "//button");
+    	sc.performAction(elem, "click", null);
+    	
+    	elem = sc.identifyElement("id", "flash");
+    	
+    	String actualText = sc.performAction(elem, "gettext", null);
+    	String expectedText = "Your username is invalid";
+    	System.out.println(actualText);
+    	sc.compareValues(actualText.split("!")[0], expectedText);
+    	
+    	sc.closeApplication(true);		
+	}
+	
+	
     public static void main( String[] args )
     {
-    	SeleniumClass sc = new SeleniumClass();
-    	sc.launchApplication("chrome", "http://fb.com");
-    	WebElement el = sc.identifyElement("id", "");
-    	sc.performAction(el, "click", null);
     	
+    	verifyFormAuthWithBlankCredentials();
     	
        // System.out.println( "Hello World!" );
     	/*ListExample le = new ListExample();
@@ -34,14 +55,15 @@ public class App
     	
     	//IOOperations io = new IOOperations();
     	//io.writeData();
-    	Base io = new Base();
+    	/*Base io = new Base();
     	io.writeExcel();
     	io.readExcel();
-    	
+    	*/
     	
     }
     
   //  SetExample exe1 = new SetExample();
     //exe1.
+    
  
 }
