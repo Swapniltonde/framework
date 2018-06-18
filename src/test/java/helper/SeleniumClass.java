@@ -93,7 +93,8 @@ public class SeleniumClass extends Base{
 		
 		return str;
 	}
-
+	
+  
 	public void closeApplication(boolean flag) {
 		
 		if(flag)
@@ -104,4 +105,5 @@ public class SeleniumClass extends Base{
 			driver.close();
 		}
 	}
+	
 }

@@ -23,19 +23,48 @@ public class App
     	
     	elem = sc.identifyElement("id", "flash");
     	
-    	String actualText = sc.performAction(elem, "gettext", null);
+    	
+    	
+    	/*String actualText = sc.performAction(elem, "gettext", null);
     	String expectedText = "Your username is invalid";
     	System.out.println(actualText);
-    	sc.compareValues(actualText.split("!")[0], expectedText);
+    	sc.compareValues(actualText.split("!")[0], expectedText);*/
     	
-    	sc.closeApplication(true);		
+    	
+    	
+    	//sc.closeApplication(true);		
 	}
+	public static void verifyFormAuthWithtextCredentials() {
+		SeleniumClass sc = new SeleniumClass();
+    	WebElement elem;
+    	sc.launchApplication("chrome", "https://the-internet.herokuapp.com/");
+    	
+    	elem = sc.identifyElement("linktext", "Form Authentication");
+    	sc.performAction(elem, "click", null);
+    	
+		elem = sc.identifyElement("id", "username");
+    	sc.performAction(elem, "settext", "tomsmith");
+    	
+    	elem = sc.identifyElement("id", "password");
+    	sc.performAction(elem, "settext", "SuperSecretPassword!");
+    	
+    	elem = sc.identifyElement("xpath", "//button");
+    	sc.performAction(elem, "click", null);
+    	
+    	elem = sc.identifyElement("xpath", "//a[@class='button secondary radius']");
+    	sc.performAction(elem, "click", null);
+    	sc.closeApplication(true);
+
+	}
+	
+	
 	
 	
     public static void main( String[] args )
     {
     	
-    	verifyFormAuthWithBlankCredentials();
+    	//verifyFormAuthWithBlankCredentials();
+    	verifyFormAuthWithtextCredentials();
     	
        // System.out.println( "Hello World!" );
     	/*ListExample le = new ListExample();
