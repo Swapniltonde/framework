@@ -30,12 +30,39 @@ public class App
     	
     	sc.closeApplication(true);		
 	}
+	public static void verifyFormAuthWithCorrectCredentials() {
+		
+		SeleniumClass sc = new SeleniumClass();
+    	WebElement elem;
+		sc.launchApplication("chrome", "https://the-internet.herokuapp.com/");
+    	
+		elem = sc.identifyElement("linktext", "Form Authentication");
+    	sc.performAction(elem, "click", null);
+    	
+    	elem = sc.identifyElement("id", "username");
+    	String getusername= sc.performAction(elem,"settext","tomsmith");
+    
+    	elem = sc.identifyElement("id", "password");
+    	String getpassword= sc.performAction(elem,"settext","SuperSecretPassword!");
+    	
+    	elem = sc.identifyElement("xpath", "//button");
+    	sc.performAction(elem, "click", null);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	//sc.closeApplication(true);		
+	}
 	
 	
     public static void main( String[] args )
     {
     	
-    	verifyFormAuthWithBlankCredentials();
+    	//verifyFormAuthWithBlankCredentials();
+    	verifyFormAuthWithCorrectCredentials();
     	
        // System.out.println( "Hello World!" );
     	/*ListExample le = new ListExample();
