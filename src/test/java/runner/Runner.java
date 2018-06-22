@@ -8,8 +8,11 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 				features = "src\\test\\java\\testcases"	,
-				glue = "stepdef"
-		
+				glue = "stepdef",
+				monochrome=true,
+				dryRun=false,
+				tags= {"@tag1"}
+				
 		
 		
 		)
