@@ -1,6 +1,7 @@
 package stepdef;
 
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.*;
 import pageobjects.HomePage;
 
@@ -32,5 +33,11 @@ public class HomeStepDef extends HomePage{
 	    
 		this.closeApplication(true);
 		System.out.println("In When again...");
+	}
+	
+	@Given("^click on \"([^\"]*)\" link$")
+	public void click_on_link(String arg1) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
 	}
 }

@@ -9,14 +9,5 @@ Background:
     When verify total page links are 39
     And close browser
    
-   @tag2 
-    Scenario: To verify total link count on home page
-    When verify total page links are 39
-    And close browser
-    
-    @tag3
-    Scenario: To verify total link count on home page
-    When verify total page links are 39
-    And close browser
-    
+  
   
