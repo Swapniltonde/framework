@@ -1,11 +1,15 @@
 package helper;
 
+import java.util.List;
+
+import org.apache.http.client.HttpClient;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class SeleniumClass extends Base{
@@ -76,6 +80,58 @@ public class SeleniumClass extends Base{
 		
 	}
 	
+	public List<WebElement> identifyElements(String type, String address) {
+		List<WebElement>  elements= null;
+		By by = null;
+		if(type.equalsIgnoreCase("id")) {
+			by = By.id(address);					
+		}
+		else if(type.equalsIgnoreCase("name")) {
+	        by = By.name(address);			
+		}
+		else if(type.equalsIgnoreCase("classname")) {
+			by = By.className(address);			
+		}
+		else if(type.equalsIgnoreCase("css")) {
+			by= By.cssSelector(address);			
+		}
+		else if(type.equalsIgnoreCase("xpath")) {
+			 by = By.xpath(address);			
+		}
+		else if(type.equalsIgnoreCase("linktext")) {
+			by = By.linkText(address);			
+		}
+		else if(type.equalsIgnoreCase("tagname")) {
+			 by = By.tagName(address);			 
+		}
+		else if(type.equalsIgnoreCase("partiallinktext")) {
+			 by = By.partialLinkText(address);			 
+		}
+		elements = driver.findElements(by);
+		return elements;
+		
+	}
+	
+	public String getPageDetails(String type) {
+		String value = null;
+		
+		if(type.equalsIgnoreCase("title")) {
+			value = driver.getTitle();
+		}
+		else if(type.equalsIgnoreCase("url")) {
+			value = driver.getCurrentUrl();
+		}
+		else if(type.equalsIgnoreCase("source")) {
+			value = driver.getPageSource();
+		}
+		else if(type.equalsIgnoreCase("handle")) {
+			value = driver.getWindowHandle();
+		}	
+		
+		return value;
+	}
+	
+	
 	public String performAction(WebElement element, String actionType, String value) {
 		
 		String str = null;
@@ -94,7 +150,11 @@ public class SeleniumClass extends Base{
 		return str;
 	}
 	
-  
+	public void verifyImages() {
+		
+		HttpClient client;
+	}
+		
 	public void closeApplication(boolean flag) {
 		
 		if(flag)

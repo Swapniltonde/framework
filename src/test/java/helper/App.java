@@ -1,5 +1,9 @@
 package helper;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.event.InputEvent;
+
 import org.openqa.selenium.WebElement;
 
 /**
@@ -8,6 +12,54 @@ import org.openqa.selenium.WebElement;
  */
 public class App 
 {
+	
+	public static void moveToTab() {
+		SeleniumClass sc = new SeleniumClass();
+    	WebElement elem;
+		sc.launchApplication("chrome", "https://the-internet.herokuapp.com/");
+    	
+		elem = sc.identifyElement("linktext", "Exit Intent");		
+    	sc.performAction(elem, "click", null);
+    	
+    	try {
+			Robot robot = new Robot();
+			
+			
+			robot.mouseMove(500,500);
+			robot.mouseRelease(InputEvent.BUTTON1_MASK);
+			
+			robot.mouseMove(50,50);
+			robot.mouseRelease(InputEvent.BUTTON1_MASK);
+			
+			
+		} catch (AWTException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
+    	elem = sc.identifyElement("xpath", "//*[@id=\"ouibounce-modal\"]/div[2]/div[1]/h3");
+    	String actualText = sc.performAction(elem, "gettext", null);
+    	System.out.println(actualText);
+    	
+	}
+	
+	public static void mouseHover() {
+		SeleniumClass sc = new SeleniumClass();
+    	WebElement elem;
+		sc.launchApplication("chrome", "https://the-internet.herokuapp.com/");
+    	
+		elem = sc.identifyElement("linktext", "Hovers");		
+    	sc.performAction(elem, "click", null);
+    	
+    	String xpathImage= "//*[@id=\"content\"]/div/div[1]/img";
+    	elem = sc.identifyElement("xpath", xpathImage);
+    	
+    	//sc.actionsByMouseKeyboard(elem);
+    	
+    	
+    	
+    	
+	}
 	
 	public static void verifyFormAuthWithBlankCredentials() {
 		
@@ -125,11 +177,11 @@ public class App
     	
     	//verifyFormAuthWithBlankCredentials();
 
-    	verifyFormAuthWithtextCredentials();
+    	moveToTab();
 
-    	verifyFormAuthWithCorrectCredentials();
+    	/*verifyFormAuthWithCorrectCredentials();
     	verifyFormAuthWithBlankCredentialswithwrongcredentials();
-    	
+    	*/
        // System.out.println( "Hello World!" );
     	/*ListExample le = new ListExample();
     	le.addElementsToArraylist();

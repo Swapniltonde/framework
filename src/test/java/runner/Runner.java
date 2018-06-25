@@ -10,12 +10,10 @@ import cucumber.api.junit.Cucumber;
 				features = "src\\test\\java\\testcases"	,
 				glue = "stepdef",
 				monochrome=true,
-				dryRun=false,
-				tags= {"@tag1"},
+				dryRun=true,
+				tags= {"@brokenimage"},
 				plugin= {"pretty","html:target/cucumber-reports","json:target/cucumber-reports/report.json"}
-				
-		
-		
+					
 		)
 public class Runner 
 {

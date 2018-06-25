@@ -16,23 +16,25 @@ public class HomeStepDef extends HomePage{
 	}
 
 	@Given("^verify page by \"([^\"]*)\" with \"([^\"]*)\"$")
-	public void verify_page_by_with(String arg1, String arg2) throws Throwable {
+	public void verify_page_by_with(String type, String expectedTitle) throws Throwable {
 	  
-		System.out.println("In Given again");
+		String actualTitle = this.getPageDetails("title");
+		this.compareValues(actualTitle, expectedTitle);
 	    
 	}
 
 	@When("^verify total page links are (\\d+)$")
-	public void verify_total_page_links_are(int arg1) throws Throwable {
+	public void verify_total_page_links_are(int expectedLinkCount) throws Throwable {
 	  
-		System.out.println("In When");
+		int actualLinkCount = this.getElementListCount(this.getAllLinks());
+		this.compareValues(actualLinkCount -2, expectedLinkCount);
 	}
 
 	@When("^close browser$")
 	public void close_browser() throws Throwable {
 	    
 		this.closeApplication(true);
-		System.out.println("In When again...");
+		
 	}
 	
 	@Given("^click on \"([^\"]*)\" link$")
