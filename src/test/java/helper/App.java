@@ -38,7 +38,7 @@ public class App
 		}
     	
     	elem = sc.identifyElement("xpath", "//*[@id=\"ouibounce-modal\"]/div[2]/div[1]/h3");
-    	String actualText = sc.performAction(elem, "gettext", null);
+    	String actualText = (String) sc.performAction(elem, "gettext", null);
     	System.out.println(actualText);
     	
 	}
@@ -75,7 +75,7 @@ public class App
     	
     	elem = sc.identifyElement("id", "flash");	
     	
-    	String actualText = sc.performAction(elem, "gettext", null);
+    	String actualText = (String) sc.performAction(elem, "gettext", null);
     	String expectedText = "Your username is invalid";
     	System.out.println(actualText);
     	sc.compareValues(actualText.split("!")[0], expectedText);
@@ -148,7 +148,7 @@ public class App
     	sc.performAction(elem1, "click", null);
      	
     	elem1 = sc.identifyElement("id", "flash");
-    	String actualText = sc.performAction(elem1, "gettext", null);
+    	String actualText = (String) sc.performAction(elem1, "gettext", null);
     	String expectedText = "Your username is invalid";
     	
     	sc.compareValues(actualText.split("!")[0], expectedText);

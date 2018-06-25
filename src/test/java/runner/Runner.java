@@ -10,8 +10,8 @@ import cucumber.api.junit.Cucumber;
 				features = "src\\test\\java\\testcases"	,
 				glue = "stepdef",
 				monochrome=true,
-				dryRun=true,
-				tags= {"@brokenimage"},
+				dryRun=false,
+				tags= {"@dd"},
 				plugin= {"pretty","html:target/cucumber-reports","json:target/cucumber-reports/report.json"}
 					
 		)

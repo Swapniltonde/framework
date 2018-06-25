@@ -11,10 +11,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class SeleniumClass extends Base{
 	
-	WebDriver driver;
+	static WebDriver driver;
 	
 	public void launchApplication(String browserName, String url) 
 	{
@@ -132,28 +133,28 @@ public class SeleniumClass extends Base{
 	}
 	
 	
-	public String performAction(WebElement element, String actionType, String value) {
+	public Object performAction(WebElement element, String actionType, String value) {
 		
-		String str = null;
+		Object obj = null;
+		
 		if(actionType.equalsIgnoreCase("click")) {
 			element.click();
 		}		
 		else if(actionType.equalsIgnoreCase("gettext"))
 		{
-			str = element.getText();
+			obj = element.getText();
 		}
 		else if(actionType.equalsIgnoreCase("settext"))
 		{
 			element.sendKeys(value);
 		}
+		else if(actionType.equalsIgnoreCase("dropdown")) {
+			obj = new Select(element);
+		}
 		
-		return str;
+		return obj;
 	}
 	
-	public void verifyImages() {
-		
-		HttpClient client;
-	}
 		
 	public void closeApplication(boolean flag) {
 		

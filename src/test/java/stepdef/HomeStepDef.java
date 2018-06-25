@@ -18,7 +18,7 @@ public class HomeStepDef extends HomePage{
 	@Given("^verify page by \"([^\"]*)\" with \"([^\"]*)\"$")
 	public void verify_page_by_with(String type, String expectedTitle) throws Throwable {
 	  
-		String actualTitle = this.getPageDetails("title");
+		String actualTitle = this.getPageDetails(type);
 		this.compareValues(actualTitle, expectedTitle);
 	    
 	}
@@ -38,8 +38,9 @@ public class HomeStepDef extends HomePage{
 	}
 	
 	@Given("^click on \"([^\"]*)\" link$")
-	public void click_on_link(String arg1) throws Throwable {
+	public void click_on_link(String linkName) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    
+	    this.performAction(this.getLink(linkName), "click", null);
 	}
 }

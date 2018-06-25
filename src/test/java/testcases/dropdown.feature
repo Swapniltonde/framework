@@ -5,11 +5,11 @@ Background:
     And click on "Dropdown" link
     And verify page by "url" with "https://the-internet.herokuapp.com/dropdown"
  
-    
+   @dd 
   Scenario: To verify default dropdown value
   			Then verify default dropdown value is "Please select an option"
   			And close browser
-  			
+  	@dd		
   Scenario: To verify count of dropdown options
   			Then the count of dropdown options should be 3
   			And close browser
