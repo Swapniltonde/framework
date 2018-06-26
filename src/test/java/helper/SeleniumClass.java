@@ -148,7 +148,10 @@ public class SeleniumClass extends Base{
 		{
 			element.sendKeys(value);
 		}
-		else if(actionType.equalsIgnoreCase("dropdown")) {
+		/*else if(actionType.equalsIgnoreCase("dropdown")) {
+			obj = new Select(element);
+		}*/
+		else if(actionType.equalsIgnoreCase("checkboxes")) {
 			obj = new Select(element);
 		}
 		
