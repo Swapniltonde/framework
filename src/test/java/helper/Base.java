@@ -2,6 +2,11 @@ package helper;
 
 import java.io.*;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.poi.sl.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -84,5 +89,19 @@ public class Base {
 		Assert.assertEquals(expected, actual);
 	}
 	
-
+	public int getStatusCodeFromResponse(String url) {
+		int code=0;
+		HttpClientBuilder builder= HttpClientBuilder.create();
+		CloseableHttpClient client=builder.build();
+		HttpGet request=new HttpGet(url);
+		try {
+			CloseableHttpResponse response=client.execute(request);
+			code=response.getStatusLine().getStatusCode();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 return code;
+	}
+	
 }

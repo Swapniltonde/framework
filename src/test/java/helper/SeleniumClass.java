@@ -137,6 +137,7 @@ public class SeleniumClass extends Base{
 		
 		Object obj = null;
 		
+		
 		if(actionType.equalsIgnoreCase("click")) {
 			element.click();
 		}		
@@ -151,11 +152,16 @@ public class SeleniumClass extends Base{
 		/*else if(actionType.equalsIgnoreCase("dropdown")) {
 			obj = new Select(element);
 		}*/
+		else if(actionType.equalsIgnoreCase("attribute"))
+		{
+			obj= element.getAttribute(value);
+		}
 		else if(actionType.equalsIgnoreCase("checkboxes")) {
 			obj = new Select(element);
 		}
 		
 		return obj;
+		
 	}
 	
 		

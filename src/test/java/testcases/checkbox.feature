@@ -11,7 +11,7 @@ Background:
     And close browser
     
     
-    @checkboxes
+    @checkboxes1
   Scenario: To verify ticks for checkboxes on checkboxes link 
     Then verify  checkbox 1 is "tick"
     And verify  checkbox 2 is "untick"
