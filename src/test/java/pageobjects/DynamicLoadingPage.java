@@ -33,7 +33,12 @@ public class DynamicLoadingPage extends SeleniumClass {
 	public String getHelloWorldText() {
 		By by = this.getElementBy("xpath", xpathText);
 		this.waitUntilPresenceOfElementLocated(by);
-		
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		WebElement element = this.identifyElement("xpath", xpathText);
 		String text = (String) this.performAction(element, "gettext", null);
 		return text;

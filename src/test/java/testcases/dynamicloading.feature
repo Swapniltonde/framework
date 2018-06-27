@@ -10,6 +10,7 @@ Background:
   			  When user clicks on "Example 1: Element on page that is hidden" 
   			  Then user should click on the Start Button
   			  And "Hello World!" message should be displayed
+  			  And close browser
   			 
   			  
  
