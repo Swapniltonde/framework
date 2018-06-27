@@ -1,6 +1,7 @@
 package helper;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.http.client.HttpClient;
 import org.openqa.selenium.By;
@@ -11,7 +12,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumClass extends Base{
 	
@@ -46,8 +50,42 @@ public class SeleniumClass extends Base{
 		
 		driver.get(url);
 		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		
 	}
+	
+	public By getElementBy(String type, String address) {
+		
+		By by = null;
+		if(type.equalsIgnoreCase("id")) {
+			by = By.id(address);					
+		}
+		else if(type.equalsIgnoreCase("name")) {
+	        by = By.name(address);			
+		}
+		else if(type.equalsIgnoreCase("classname")) {
+			by = By.className(address);			
+		}
+		else if(type.equalsIgnoreCase("css")) {
+			by= By.cssSelector(address);			
+		}
+		else if(type.equalsIgnoreCase("xpath")) {
+			 by = By.xpath(address);			
+		}
+		else if(type.equalsIgnoreCase("linktext")) {
+			by = By.linkText(address);			
+		}
+		else if(type.equalsIgnoreCase("tagname")) {
+			 by = By.tagName(address);			 
+		}
+		else if(type.equalsIgnoreCase("partiallinktext")) {
+			 by = By.partialLinkText(address);			 
+		}
+		
+		return by;
+		
+	}
+	
 	
 	public WebElement identifyElement(String type, String address) {
 		WebElement  element= null;
@@ -174,6 +212,15 @@ public class SeleniumClass extends Base{
 		else {
 			driver.close();
 		}
+	}
+
+	public void waitUntilPresenceOfElementLocated(By by) {
+		
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		
+		ExpectedCondition<WebElement> ec = ExpectedConditions.presenceOfElementLocated(by);
+		
+		wait.until(ec);
 	}
 	
 }
