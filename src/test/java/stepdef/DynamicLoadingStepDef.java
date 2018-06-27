@@ -3,7 +3,7 @@ package stepdef;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.*;
 
-public class DynamicLoading {
+public class DynamicLoadingStepDef {
 	
 
 @When("^user clicks on \"([^\"]*)\"$")
