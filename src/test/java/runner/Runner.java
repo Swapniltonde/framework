@@ -11,7 +11,7 @@ import cucumber.api.junit.Cucumber;
 				glue = "stepdef",
 				monochrome=true,
 				dryRun=false,
-				tags= {"@dl"},
+				tags= {"@nestedframes"},
 				plugin= {"pretty","html:target/cucumber-reports","json:target/cucumber-reports/report.json"}
 					
 		)

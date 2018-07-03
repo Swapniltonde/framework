@@ -33,7 +33,7 @@ public class HomeStepDef extends HomePage{
 	@When("^close browser$")
 	public void close_browser() throws Throwable {
 	    
-		this.closeApplication(true);
+		//this.closeApplication(true);
 		
 	}
 	

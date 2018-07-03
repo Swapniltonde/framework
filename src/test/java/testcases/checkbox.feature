@@ -5,13 +5,13 @@ Background:
     And click on "Checkboxes" link
     And verify page by "url" with "https://the-internet.herokuapp.com/checkboxes"
     
-    @checkboxes
+    @checkboxes1
   Scenario: To verify  total checkboxes on checkboxes link    
     Then verify total checkboxes are 2
     And close browser
     
     
-    @checkboxes1
+    @checkboxes2
   Scenario: To verify ticks for checkboxes on checkboxes link 
     Then verify  checkbox 1 is "tick"
     And verify  checkbox 2 is "untick"
