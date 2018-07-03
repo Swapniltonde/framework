@@ -5,7 +5,14 @@ Background:
     And click on "Nested Frames" link
     And verify page by "url" with "https://the-internet.herokuapp.com/nested_frames"
 
-@nestedframes
+@nestedframes1
   Scenario: To verify  total frames on nested frames link    
-    Then verify total frames are 4
+    Then verify total frames are 2
+    And close browser
+   
+  @nestedframes
+  Scenario: To verify  total frames on nested frames link
+  	Then switch to frame called as "top"
+  	Then switch to frame called as "left"    
+    Then verify inner frame text as "LEFT"
     And close browser
